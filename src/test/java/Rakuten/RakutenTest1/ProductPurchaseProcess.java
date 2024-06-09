@@ -67,7 +67,8 @@ public class ProductPurchaseProcess {
 
 			// Converting Array to Array list for easy access to objects in Array
 			List<String> newItemsList = Arrays.asList(productItemsName);
-
+			
+			//Adding Product to cart with different quanity
 			if (productName.contains("Bon Bons") && newItemsList.contains(productName)) {
 				for (int j = 1; j <= 4; j++) {
 					btnAddToCart.get(i).click();
@@ -89,6 +90,8 @@ public class ProductPurchaseProcess {
 		}
 	}
 
+	
+	//Methods to Verify if the same items add to Basket is present in the basket
 	public static void VerifySelectedItemsPresentInBasket() {
 
 		// Declaring the Array with the same product list added to Basket to match if
@@ -116,6 +119,7 @@ public class ProductPurchaseProcess {
 
 	}
 
+	//methods to add all the items prices in the basket and compare wit total price
 	public static void VerifyAllItemsPriceInBasket() {
 		int covertedItemQnty = 1;
 		double covertedItemPrice = 1.0;
@@ -168,20 +172,26 @@ public class ProductPurchaseProcess {
 		WebElement txtCardNumber = driver.findElement(By.id("cc-number"));
 		WebElement txtCardExpiry = driver.findElement(By.id("cc-expiration"));
 		WebElement txtCardCvvNumber = driver.findElement(By.id("cc-cvv"));
-
+		
+		//filling personal details
 		txtBoxfirstName.sendKeys("inahoto");
 		txtBoxLastName.sendKeys("Aye");
 		txtBoxEmail.sendKeys("inahoto@gmail.com");
 		txtBoxAddress.sendKeys("1st Sector, HSR Layout");
 		txtBoxAddress1.sendKeys("124 street rd, Opposite to Universal Mall");
-
+		
+		//Selecting Country from dropdown
 		Select dpwSelectCountry = new Select(driver.findElement(By.id("country")));
 		dpwSelectCountry.selectByVisibleText("United Kingdom");
-
+		
+		//Selecting City from dropdown
 		Select dpwSelectCity = new Select(driver.findElement(By.id("city")));
 		dpwSelectCity.selectByVisibleText("Cardiff");
-
+		
+		//entering Zip code
 		txtBoxZipCode.sendKeys("110011");
+		
+		//filling Card Details
 		txtCardName.sendKeys("Inahoto Aye");
 		txtCardNumber.sendKeys("567656746376");
 		txtCardExpiry.sendKeys("10/25");
